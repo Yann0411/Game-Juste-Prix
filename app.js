@@ -7,6 +7,7 @@ var game = {
     randomNumber: null,
     attemps: 1,
     score: [],
+    result:[]
 
 
 
@@ -62,9 +63,32 @@ function play() {
 
 
     game.score.push(game.attemps)
-    console.table(game.score)
-    play()
 
+    if(confirm('voulez-vous rejouer ?')){
+
+        play()
+       
+
+    }else{
+
+        for (var index = 0; index < game.score.length; index++) {
+            var score = game.score[index]
+            game.result.push(`partie ${index +1} : ${score} essais /br`)
+            var scoreElm = document.getElementById('scores');
+            scoreElm.textContent = game.result
+          
+            
+        }
+
+  
+       
+
+    }
+   
+ 
+
+
+   
 
 }
 
